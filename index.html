@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Why Victims of DFV Are Misidentified</title>
+    <style>
+        /* Brand Colours:
+        #C6B4D9 (Light Lavender - Accent)
+        #513873 (Deep Purple - Primary Text/Heading)
+        #413659 (Dark Grey-Purple - Secondary Text/Borders)
+        #F2F2F2 (Light Grey - Main Background)
+        #9C7F9D (Muted Purple - Button Hover/Accent)
+        */
+
+        body {
+            font-family: Helvetica, Arial, sans-serif;
+            background-color: #F2F2F2;
+            color: #413659;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 20px;
+            background-color: #C6B4D9;
+            color: #513873;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #513873;
+            font-size: 1.8rem;
+            margin-top: 0;
+        }
+
+        .interactive-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Tab/Button Styling (Responsive Flexbox) */
+        .group-selectors {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #C6B4D9;
+            padding-bottom: 10px;
+        }
+
+        .tab-button {
+            flex-grow: 1;
+            padding: 12px 10px;
+            border: none;
+            border-radius: 5px 5px 0 0;
+            background-color: #413659;
+            color: #F2F2F2;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+            font-weight: 600;
+            text-align: center;
+            min-width: 120px;
+        }
+
+        @media (min-width: 768px) {
+            .tab-button {
+                min-width: 150px;
+            }
+        }
+
+        .tab-button:hover:not(.active) {
+            background-color: #9C7F9D;
+        }
+
+        .tab-button.active {
+            background-color: #513873;
+            color: white;
+            border-bottom: 4px solid #C6B4D9;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Content Panel Structure */
+        .content-panel {
+            display: none;
+            padding: 20px 0 20px 0; /* Adjusted padding as the border is gone */
+            animation: fadeIn 0.5s;
+        }
+
+        .content-panel.active {
+            display: block;
+        }
+
+        .content-panel h2 {
+            color: #513873;
+            margin-top: 0;
+            font-size: 1.5rem;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #C6B4D9;
+            margin-bottom: 30px;
+        }
+        
+        /* New Flex Row for Line | Image | Text */
+        .main-content-row {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start; 
+            padding-left: 20px;
+        }
+
+        .vertical-separator {
+            width: 5px;
+            min-height: 350px; /* Ensures the line is tall enough */
+            background-color: #513873;
+            flex-shrink: 0;
+            border-radius: 5px;
+        }
+
+        /* Image Placeholder adjustments for the new layout */
+        .group-image-placeholder {
+            width: 280px; /* Updated width */
+            height: 335px; /* Updated height */
+            background-color: #C6B4D9;
+            border: 3px solid #9C7F9D;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-size: 1.1rem;
+            color: #513873;
+            font-weight: bold;
+            flex-shrink: 0;
+            margin: 0; 
+            padding: 10px;
+        }
+
+        /* New combined text block style */
+        .single-info-block {
+            flex-grow: 1; /* Takes up remaining space */
+            padding: 15px;
+            background-color: #F2F2F2;
+            border-radius: 5px;
+            box-shadow: inset 0 0 5px rgba(65, 54, 89, 0.1);
+        }
+
+        .single-info-block h3 {
+            color: #413659;
+            margin-top: 0;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-bottom: 1px dashed #9C7F9D; 
+            padding-bottom: 5px;
+            margin-bottom: 10px;
+        }
+        
+        .single-info-block h3:last-of-type {
+            margin-top: 20px; /* Space above the "Signs Often Missed" heading */
+        }
+        
+        .single-info-block p {
+            margin: 0;
+        }
+
+        /* Responsive styling for stacking on small screens */
+        @media (max-width: 767px) {
+            .main-content-row {
+                flex-direction: column; /* Stack vertically */
+                padding-left: 0;
+            }
+            .vertical-separator {
+                display: none; /* Hide the vertical line on mobile */
+            }
+            .group-image-placeholder {
+                max-width: 100%;
+                height: 200px; /* Smaller height on mobile */
+                width: 100%; /* Ensure it spans the width */
+                margin: 0 auto 20px auto; 
+            }
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Why Victims of DFV are Misidentified</h1>
+        <p>Victims who belong to groups facing <strong>extra challenges</strong> are often wrongly identified as the person causing harm. This happens due to unfair views, a lack of understanding, or their unique situation. Click on a group below to see the specific problems and warning signs that services often miss.</p>
+    </header>
+
+    <div class="interactive-container">
+
+        <!-- Interactive Tabs/Buttons -->
+        <div class="group-selectors">
+            <button class="tab-button active" data-group="aboriginal-women">Aboriginal Women</button>
+            <button class="tab-button" data-group="refugees-migrants">Refugees and Migrants</button>
+            <button class="tab-button" data-group="pwd">People with Disabilities</button>
+            <button class="tab-button" data-group="lgbtqia">LGBTQIA+ People</button>
+            <button class="tab-button" data-group="young-people">Young People</button>
+        </div>
+
+        <!-- Content Panels -->
+        <div class="content-panels">
+            
+            <div id="aboriginal-women" class="content-panel active">
+                <h2>Aboriginal Women</h2>
+                
+                <div class="main-content-row">
+                    <div class="vertical-separator"></div> 
+
+                    <div class="group-image-placeholder">Aboriginal Women</div>
+
+                    <div class="single-info-block">
+                        <h3>Why They Slip Through the Net (Misidentification)</h3>
+                        <p><strong>Unfair Views & Historical Hurt:</strong> Police and services might unfairly see Aboriginal people as offenders because of past over-policing. They may not understand the long-lasting effects of historical events or how DFV looks in a complex family setting.</p>
+                        
+                        <h3>Signs Often Missed</h3>
+                        <p><strong>Forced to Cooperate:</strong> The victim might not report the harm, or they might even protect the perpetrator because they fear their children will be taken away by child protection services (a common historical fear). Services mistake this forced cooperation for shared fault or shared blame.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="refugees-migrants" class="content-panel">
+                <h2>Refugees and Migrants</h2>
+                
+                <div class="main-content-row">
+                    <div class="vertical-separator"></div> 
+
+                    <div class="group-image-placeholder">Refugees and Migrants</div>
+
+                    <div class="single-info-block">
+                        <h3>Why They Slip Through the Net (Misidentification)</h3>
+                        <p><strong>Visa Threats & Language Problems:</strong> The person causing harm often threatens to have the victim deported, cancel their visa sponsorship, or takes advantage of the victim not understanding Australian law. If a victim acts urgently to get their documents back, this can be wrongly seen as aggression or unstable behaviour.</p>
+                        
+                        <h3>Signs Often Missed</h3>
+                        <p><strong>Alone and Controlled:</strong> The harm often involves <strong>total control</strong> over money, documents, and who the victim can talk to. The victim may seem totally dependent or very stressed. Services may wrongly call this a <strong>personality issue</strong> instead of a reaction to abuse.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="pwd" class="content-panel">
+                <h2>People with Disabilities</h2>
+                
+                <div class="main-content-row">
+                    <div class="vertical-separator"></div> 
+
+                    <div class="group-image-placeholder">People with Disabilities</div>
+
+                    <div class="single-info-block">
+                        <h3>Why They Slip Through the Net (Misidentification)</h3>
+                        <p>The victim's condition, how they communicate, or the need to rely on the perpetrator (who is often their carer) is seen as the <strong>main problem</strong>. If the victim fights back to defend themselves, the services might blame this on the disability itself, leading to the victim being wrongly labelled as the aggressor.</p>
+                        
+                        <h3>Signs Often Missed</h3>
+                        <p><strong>Forced Silence & Isolation:</strong> The victim has very few friends or contacts outside the home. Authorities may ignore their strong sadness or fear, saying it is simply part of their disability (e.g., "just worry" or "standard behaviour"). The abuse is often not checked for on its own.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="lgbtqia" class="content-panel">
+                <h2>LGBTQIA+ People</h2>
+                
+                <div class="main-content-row">
+                    <div class="vertical-separator"></div> 
+
+                    <div class="group-image-placeholder">LGBTQIA+ People</div>
+
+                    <div class="single-info-block">
+                        <h3>Why They Slip Through the Net (Misidentification)</h3>
+                        <p>In same-sex relationships, police and courts often wrongly view the violence as <strong>'shared responsibility'</strong> because they assume that abuse only happens in straight relationships. The perpetrator threatens to reveal the victim's sexuality or gender identity to family or work, which makes the victim fight back against the threats. This act of self-protection is then recorded as an offense.</p>
+                        
+                        <h3>Signs Often Missed</h3>
+                        <p><strong>Separated from Support:</strong> The abuse includes attacking the victim’s gender identity or sexuality (e.g., "No one will believe a gay person is abused"). The victim pulls away from their community and tries hard to hide information, which services wrongly see as being difficult or avoiding the truth.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="young-people" class="content-panel">
+                <h2>Young People (16-25)</h2>
+                
+                <div class="main-content-row">
+                    <div class="vertical-separator"></div> 
+
+                    <div class="group-image-placeholder">Young People (16-25)</div>
+
+                    <div class="single-info-block">
+                        <h3>Why They Slip Through the Net (Misidentification)</h3>
+                        <p>The victim is often seen as just being a <strong>'rebellious teenager'</strong> or a <strong>'difficult partner'</strong> in a relationship. Because they don't have their own money or a safe place to live, they act desperately to stay in the abusive situation. Services mistake this desperation for immaturity or sharing the blame for the conflict.</p>
+                        
+                        <h3>Signs Often Missed</h3>
+                        <p><strong>Inexperience & Online Abuse:</strong> Abuse often happens mostly online (sharing private photos, tracking location). Services looking for physical violence may not see this as DFV. The victim’s urgent attempts to delete things or escape the situation are misidentified as being restless or unstable.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabs = document.querySelectorAll('.tab-button');
+            const panels = document.querySelectorAll('.content-panel');
+
+            // Function to handle tab clicks
+            const activateTab = (tab) => {
+                const groupName = tab.getAttribute('data-group');
+
+                // 1. Deactivate all buttons and panels
+                tabs.forEach(t => t.classList.remove('active'));
+                panels.forEach(p => p.classList.remove('active'));
+
+                // 2. Activate the clicked button
+                tab.classList.add('active');
+
+                // 3. Activate the corresponding panel
+                const activePanel = document.getElementById(groupName);
+                if (activePanel) {
+                    activePanel.classList.add('active');
+                }
+            };
+
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => activateTab(tab));
+            });
+
+            // Set up initial state (first tab active)
+            const initialTab = document.querySelector('.tab-button.active');
+            if (initialTab) {
+                // Ensure the content for the initial active tab is displayed
+                const initialGroup = initialTab.getAttribute('data-group');
+                const initialPanel = document.getElementById(initialGroup);
+                if (initialPanel) {
+                    initialPanel.classList.add('active');
+                }
+            }
+        });
+    </script>
+</body>
+</html>
