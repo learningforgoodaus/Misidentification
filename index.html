@@ -124,7 +124,7 @@
             border-radius: 5px;
         }
 
-        /* Image Styling */
+        /* Image Placeholder Box Styling (Applied to the div/img) */
         .group-image-box {
             width: 280px; /* Fixed width */
             height: 335px; /* Fixed height */
@@ -132,16 +132,21 @@
             border-radius: 8px;
             flex-shrink: 0;
             margin: 0;
-            /* Placeholder styles in case image fails to load */
+            /* Placeholder styles for a visual box */
             background-color: #C6B4D9; 
             color: #513873;
             font-weight: bold;
+            
+            /* Centering the text inside the div */
             display: flex; 
             align-items: center; 
             justify-content: center; 
             text-align: center;
             padding: 10px;
-            object-fit: cover; /* Ensures image fills the box */
+            
+            /* Default styles for img */
+            object-fit: cover; 
+            line-height: 1.5; /* Resetting line height for text */
         }
 
 
@@ -222,11 +227,10 @@
                 <div class="main-content-row">
                     <div class="vertical-separator"></div> 
 
-                    <!-- IMAGE LINKED TO GITHUB FILE -->
-                    <img class="group-image-box" 
-                        src="https://raw.githubusercontent.com/learningforgoodaus/Misidentification/main/AboriginalWomen.png" 
-                        alt="Aboriginal Women"
-                        onerror="this.style.display='none';">
+                    <!-- IMAGE PLACEHOLDER (STABLE LAYOUT) -->
+                    <div class="group-image-box">
+                        Aboriginal Women
+                    </div>
 
                     <div class="single-info-block">
                         <h3>Why They Slip Through the Net (Misidentification)</h3>
@@ -244,11 +248,10 @@
                 <div class="main-content-row">
                     <div class="vertical-separator"></div> 
 
-                    <!-- IMAGE LINKED TO GITHUB FILE -->
-                    <img class="group-image-box" 
-                        src="https://raw.githubusercontent.com/learningforgoodaus/Misidentification/main/Refugees%20and%20Migrants.png" 
-                        alt="Refugees and Migrants"
-                        onerror="this.style.display='none';">
+                    <!-- IMAGE PLACEHOLDER (STABLE LAYOUT) -->
+                    <div class="group-image-box">
+                        Refugees and Migrants
+                    </div>
 
                     <div class="single-info-block">
                         <h3>Why They Slip Through the Net (Misidentification)</h3>
@@ -266,11 +269,10 @@
                 <div class="main-content-row">
                     <div class="vertical-separator"></div> 
 
-                    <!-- IMAGE LINKED TO GITHUB FILE -->
-                    <img class="group-image-box" 
-                        src="https://raw.githubusercontent.com/learningforgoodaus/Misidentification/main/People%20with%20Disabilities.png" 
-                        alt="People with Disabilities"
-                        onerror="this.style.display='none';">
+                    <!-- IMAGE PLACEHOLDER (STABLE LAYOUT) -->
+                    <div class="group-image-box">
+                        People with Disabilities
+                    </div>
 
                     <div class="single-info-block">
                         <h3>Why They Slip Through the Net (Misidentification)</h3>
@@ -288,11 +290,10 @@
                 <div class="main-content-row">
                     <div class="vertical-separator"></div> 
 
-                    <!-- IMAGE LINKED TO GITHUB FILE -->
-                    <img class="group-image-box" 
-                        src="https://raw.githubusercontent.com/learningforgoodaus/Misidentification/main/LGBTQIA+%20People.png" 
-                        alt="LGBTQIA+ People"
-                        onerror="this.style.display='none';">
+                    <!-- IMAGE PLACEHOLDER (STABLE LAYOUT) -->
+                    <div class="group-image-box">
+                        LGBTQIA+ People
+                    </div>
 
                     <div class="single-info-block">
                         <h3>Why They Slip Through the Net (Misidentification)</h3>
@@ -310,11 +311,10 @@
                 <div class="main-content-row">
                     <div class="vertical-separator"></div> 
 
-                    <!-- IMAGE LINKED TO GITHUB FILE -->
-                    <img class="group-image-box" 
-                        src="https://raw.githubusercontent.com/learningforgoodaus/Misidentification/main/Young%20People.png" 
-                        alt="Young People (16-25)"
-                        onerror="this.style.display='none';">
+                    <!-- IMAGE PLACEHOLDER (STABLE LAYOUT) -->
+                    <div class="group-image-box">
+                        Young People
+                    </div>
 
                     <div class="single-info-block">
                         <h3>Why They Slip Through the Net (Misidentification)</h3>
@@ -370,4 +370,3 @@
     </script>
 </body>
 </html>
-
